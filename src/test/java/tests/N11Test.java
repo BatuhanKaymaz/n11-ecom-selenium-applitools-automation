@@ -24,7 +24,7 @@ public class N11Test extends BaseTest {
         driver.get("https://www.n11.com/");
         tabBarPage = new TabBarPage(driver,eyes);
         tabBarPage.clickLoginButton();
-        tabBarPage.accesCookie();
+
     }
 
     @Test(priority = 2)

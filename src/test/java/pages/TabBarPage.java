@@ -17,7 +17,7 @@ public class TabBarPage extends BasePage {
     private WebElement searchBoxInput;
     @FindBy(xpath = "//*[@id='header']/div/div/div/div[2]/div[4]/a")
     private WebElement basketButtonElement;
-  
+
 
     public TabBarPage(WebDriver driver, Eyes eyes) {
         super(driver,eyes);
