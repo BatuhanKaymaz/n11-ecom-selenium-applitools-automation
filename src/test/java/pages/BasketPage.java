@@ -11,24 +11,23 @@ import org.openqa.selenium.support.PageFactory;
 public class BasketPage extends BasePage {
     @FindBy(xpath = "//span[contains(@class, 'removeProd') and contains(@class, 'svgIcon_trash')]")
     private WebElement deleteProductElement;
-    @FindBy(id = "deleteBtnDFLB")
-    private WebElement deleteElemet;
+    @FindBy(className = "supriseDiscountContainer")
+    private  WebElement ignoreElement;
 
-     public  BasketPage(WebDriver driver, Eyes eyes){
-         super(driver,eyes);
-         PageFactory.initElements(driver,this);
-     }
+
+    public  BasketPage(WebDriver driver, Eyes eyes){
+        super(driver,eyes);
+        PageFactory.initElements(driver,this);
+    }
 
      public void controlProduct(){
          time();
          if (eyes != null) {
              try {
-                 eyes.checkWindow("Product added");
+                 eyes.checkWindow("Product Added");
                  System.out.println("eyes.checkWindow 'Product added' başarılı.");
              } catch (Exception e) {
                  System.err.println("eyes.checkWindow 'Product added' hatası: " + e.getMessage());
-                 // Hatayı tekrar fırlatmayın, çünkü @AfterClass'ın çalışmasını engeller.
-                 // Test raporlaması için TestNG/JUnit'e bildirin.
              }
          }
          System.out.println("controlProduct bitişi.");
@@ -44,7 +43,5 @@ public class BasketPage extends BasePage {
     public  void deleteProduct(){
          time();
          deleteProductElement.click();
-
-     }
-
+    }
 }

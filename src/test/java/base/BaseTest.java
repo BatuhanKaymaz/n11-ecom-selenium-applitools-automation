@@ -41,10 +41,8 @@ public class BaseTest {
 
                 System.out.println("Applitools Eyes oturumu zaten kapalı.");
             }
-
-
             driver.quit();
-            System.out.println("driver kapandı");
+            System.out.println("Driver kapandı");
         }
         driver = null;
     }
