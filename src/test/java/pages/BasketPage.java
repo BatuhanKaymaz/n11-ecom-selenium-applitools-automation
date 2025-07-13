@@ -12,9 +12,6 @@ import org.openqa.selenium.support.PageFactory;
 public class BasketPage extends BasePage {
     @FindBy(xpath = "//span[contains(@class, 'removeProd') and contains(@class, 'svgIcon_trash')]")
     private WebElement deleteProductElement;
-    @FindBy (id = "js-goToPaymentBtn")
-    private WebElement buyProdElement;
-
 
     public  BasketPage(WebDriver driver, Eyes eyes){
         super(driver,eyes);
