@@ -2,6 +2,7 @@ package pages;
 
 import base.BasePage;
 import com.applitools.eyes.selenium.Eyes;
+import com.applitools.eyes.selenium.fluent.Target;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,9 @@ import org.openqa.selenium.support.PageFactory;
 public class BasketPage extends BasePage {
     @FindBy(xpath = "//span[contains(@class, 'removeProd') and contains(@class, 'svgIcon_trash')]")
     private WebElement deleteProductElement;
+    @FindBy (id = "js-goToPaymentBtn")
+    private WebElement buyProdElement;
+
 
     public  BasketPage(WebDriver driver, Eyes eyes){
         super(driver,eyes);
@@ -18,18 +22,24 @@ public class BasketPage extends BasePage {
     }
 
      public void controlProduct(){
-         time();
+        time();
+
+         System.out.println("if bloğuna girildi mi?");
          if (eyes != null) {
              try {
-                 eyes.checkWindow("Product Added");
-                 System.out.println("eyes.checkWindow 'Product added' başarılı.");
+                 // Burada eyes'in açık olduğundan emin olmak için sadece null kontrol yap, çünkü getIsOpen() her SDK'da yok
+                 eyes.check("Buy Button Control", Target.window());
+                 System.out.println("eyes.check başarıyla çalıştı.");
              } catch (Exception e) {
-                 System.err.println("eyes.checkWindow 'Product added' hatası: " + e.getMessage());
+                 System.err.println("eyes.check sırasında hata: " + e.getMessage());
+                 e.printStackTrace();
              }
+         } else {
+             System.err.println("eyes objesi null, check işlemi yapılmadı.");
          }
+
          System.out.println("controlProduct bitişi.");
         }
-
 
     public void scrollDown(){
         time();
@@ -38,7 +48,7 @@ public class BasketPage extends BasePage {
     }
 
     public  void deleteProduct(){
-         time();
-         deleteProductElement.click();
+        time();
+        deleteProductElement.click();
     }
 }

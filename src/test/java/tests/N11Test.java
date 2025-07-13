@@ -24,12 +24,12 @@ public class N11Test extends BaseTest {
         driver.get("https://www.n11.com/");
         tabBarPage = new TabBarPage(driver,eyes);
         tabBarPage.clickLoginButton();
-
     }
 
     @Test(priority = 2)
     public void loginPage (){
         loginPage = new LoginPage(driver,eyes);
+
         loginPage.typeEmail(Secrets.getEmail());
         loginPage.typePassword(Secrets.getPassword());
         loginPage.clickButtonContinueButton();
@@ -48,14 +48,24 @@ public class N11Test extends BaseTest {
 
     @Test(priority = 4)
     public void basketPage(){
-        basketPage = new BasketPage(driver,eyes);
         eyes = new Eyes();
-        eyes.open(driver, "N11 Test Application", "Basket Page Visual Test", new RectangleSize(1920, 1080));
-        basketPage.controlProduct();
-        basketPage.scrollDown();
-        eyes.close();
-        basketPage.deleteProduct();
+        try {
+            eyes.open(driver, "N11 Test Application", "Basket Page Visual Test", new RectangleSize(1920, 1080));
+            System.out.println("eyes çalıştı");
 
+            basketPage = new BasketPage(driver, eyes);  // Burada eyes artık açık olan Eyes objesi
+            basketPage.controlProduct();
+
+            eyes.close();
+            System.out.println("eyes kapandı");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            eyes.abortIfNotClosed();
+        }
+
+        basketPage.scrollDown();
+        basketPage.deleteProduct();
     }
 
 

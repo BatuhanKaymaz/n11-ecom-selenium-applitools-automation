@@ -25,6 +25,8 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(driver,this);
     }
 
+
+
     public void typeEmail(String email){
         time();
         typeEmailInput.sendKeys(email);
