@@ -13,30 +13,29 @@ public class BasketPage extends BasePage {
     @FindBy(xpath = "//span[contains(@class, 'removeProd') and contains(@class, 'svgIcon_trash')]")
     private WebElement deleteProductElement;
 
+
     public  BasketPage(WebDriver driver, Eyes eyes){
         super(driver,eyes);
         PageFactory.initElements(driver,this);
     }
 
-     public void controlProduct(){
+    public void controlProduct() {
         time();
-
-         System.out.println("if bloğuna girildi mi?");
-         if (eyes != null) {
-             try {
-                 // Burada eyes'in açık olduğundan emin olmak için sadece null kontrol yap, çünkü getIsOpen() her SDK'da yok
-                 eyes.check("Buy Button Control", Target.window());
-                 System.out.println("eyes.check başarıyla çalıştı.");
-             } catch (Exception e) {
-                 System.err.println("eyes.check sırasında hata: " + e.getMessage());
-                 e.printStackTrace();
-             }
-         } else {
-             System.err.println("eyes objesi null, check işlemi yapılmadı.");
-         }
-
-         System.out.println("controlProduct bitişi.");
+        if (eyes != null) {
+            try {
+                eyes.check("Buy Button Control with Ignore Regions",Target.window());
+                System.out.println("eyes.check başarıyla çalıştı.");
+            } catch (Exception e) {
+                System.err.println("eyes.check sırasında hata: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            System.err.println("eyes objesi null, check işlemi yapılmadı.");
         }
+
+        System.out.println("controlProduct bitişi.");
+    }
+
 
     public void scrollDown(){
         time();
