@@ -1,21 +1,20 @@
-n11-ecom-selenium-applitools-automation
-n11-ecom-visual-automation-test This project is a test automation solution developed to automate a critical user flow and detect visual regressions on the N11.com e-commerce platform. The project combines functional test automation with Selenium WebDriver and visual AI-powered test automation with Applitools Eyes.
+n11-ecom-selenium-applitools-automation n11-ecom-visual-automation-test This project is a test automation solution developed to automate a critical user flow and detect visual regressions on the N11.com e-commerce platform. The project combines functional test automation with Selenium WebDriver and visual AI-powered test automation with Applitools Eyes.
 
-🚀 Project Objective: To automate a core e-commerce flow on N11.com (login, search, add to cart, and monitor custom product changes).
+🚀 Project Objective: Automate a core e-commerce flow on N11.com (login, search, add to cart, and monitor custom product changes to your cart).
 
-To proactively detect user interface (UI) changes and visual errors on the cart page using Applitools Eyes.
+Proactively detect user interface (UI) changes and visual errors on the cart page using Applitools Eyes.
 
-To enable continuous and automated test execution by integrating the developed tests into the Jenkins CI/CD pipeline.
+Enable continuous and automated test execution by integrating the developed tests into the Jenkins CI/CD pipeline.
 
 ✨ Test Scenario: This automation test covers the following steps:
 
-N11.com is successfully logged in.
+N11.com was successfully logged in.
 
 Searches for "laptop" using the search bar.
 
 Adds a specific laptop product to the cart from the search results.
 
-Takes a snapshot of the cart page with Applitools Eyes, compares it to predefined base images, and reports visual differences.
+Takes a snapshot of the cart page with Applitools Eyes, compares it to predefined base images, and reports any visual differences.
 
 🛠️ Technologies Used: Java: The core programming language.
 
@@ -31,7 +30,7 @@ ChromeDriver: For automating the Google Chrome browser.
 
 Jenkins: For Continuous Integration (CI) and automated test execution.
 
-📦 Project Structure. ├── src │ ├── main │ │ └── java │ │ └── io.github.BatuhanKaymaz │ │ └── Main (Main application or launch point) │ └── test │ └── java │ └── io.github.BatuhanKaymaz │ ├── base │ │ ├── BasePage.java │ │ └── BaseTest.java (Management of WebDriver and Applitools Views) │ ├── pages │ │ ├── BasketPage.java │ │ ├── LoginPage.java │ │ ├── ProductPage.java │ │ ├── ResultPage.java │ │ └── TabBarPage.java (Page Object Model implementation) │ ├── tests │ │ └── N11Test.java (Main test case and TestNG test methods) │ └── tools │ └── Secrets.java (API keys and sensitive information) ├── target (Maven (compile output) ├── .env (Environment variables - for local execution) ├── .gitignore └── pom.xml (Maven project configuration) ⚙️ Installation and Run Prerequisites:
+📦 Project Structure. ├── src │ ├── main │ │ └── java │ │ └── io.github.BatuhanKaymaz │ │ └── Main (Main application or launch point) │ └── test │ └── java │ └── io.github.BatuhanKaymaz │ ├── base │ │ ├── BasePage.java │ │ └── BaseTest.java (Managing WebDriver and Applitools Views) │ ├── pages │ │ ├── BasketPage.java │ │ ├── LoginPage.java │ │ ├── ProductPage.java │ │ ├── ResultPage.java │ │ └── TabBarPage.java (Page Object Model implementation) │ ├── tests │ │ └── N11Test.java (Main test case and TestNG test methods) │ └── tools │ └── Secrets.java (API keys and sensitive information) ├── target (Maven (Build output) ├── .env (Environment variables - for local execution) ├── .gitignore └── pom.xml (Maven project configuration) ⚙️ Installation and Run Prerequisites:
 
 Java Development Kit (JDK) 8+
 
